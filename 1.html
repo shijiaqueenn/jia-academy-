@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Slider - Range with fixed maximum</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    var brightness;
+​
+    $( "#slider-range-max" ).slider({
+      range: "max",
+      min: 1,
+      max: 100,
+      value: 2,
+      slide: function( event, ui ) {
+       brightness = $("#amount").val(ui.value);
+        
+      }
+    });
+    $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
+  });
+​
+  </script>
+​
+ <style>
+img {
+    -webkit-filter: brightness(200%); /* Chrome, Safari, Opera */
+    filter: brightness(200%);
+}
+</style>
+</head>
+<body>
+​
+ <img src="04d3d2ad9ccd412a041d78dad57a03b9.jpg" alt="flower" id="pic">
+<p>
+  <label for="amount">Minimum number of bedrooms:</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+<div id="slider-range-max"></div>
+ 
+ <!-- <Add a class, and target with JS > -->
+</body>
+</html>
